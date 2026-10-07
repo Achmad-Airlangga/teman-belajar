@@ -138,11 +138,12 @@
       // Alat bantu
       root.querySelector('#btn-read-all').addEventListener('click', () => A11y.readPage());
       root.querySelector('#btn-stop').addEventListener('click', () => A11y.stop());
+      // Bacakan satu bagian materi, dengan highlight pada paragraf yang sedang dibacakan
       root.querySelectorAll('[data-speak]').forEach(btn => {
         btn.addEventListener('click', () => {
           const sec = btn.closest('section');
-          const parts = sec.querySelectorAll('h2, p, li');
-          A11y.speak(Array.from(parts).map(el => el.textContent.trim()).join('. '));
+          const parts = Array.from(sec.querySelectorAll('h2, p, li')).filter(el => el.innerText.trim());
+          A11y.readElements(parts);
         });
       });
 

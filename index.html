@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TEMAN BELAJAR — Belajar Memahami, Memahami untuk Bersama</title>
   <meta name="description" content="Media interaktif inklusif untuk memahami disabilitas.">
+  <meta name="theme-color" content="#3B82F6">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Lexend:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -17,8 +21,7 @@
   <header class="navbar" role="banner">
     <div class="container navbar__inner">
       <a href="#/" class="brand" aria-label="TEMAN BELAJAR, ke beranda">
-        <i class="fa-solid fa-hands-holding-circle" aria-hidden="true"></i>
-        <span>TEMAN BELAJAR</span>
+        <img src="assets/img/logo.png" alt="Teman Belajar Logo" class="site-logo" width="48" height="48">
       </a>
 
       <button class="icon-btn navbar__toggle" id="nav-toggle" aria-label="Buka menu" aria-expanded="false" aria-controls="nav-menu">
@@ -38,10 +41,13 @@
       <button class="btn btn--sm btn--ghost" id="btn-mono" aria-pressed="false" aria-label="Aktifkan mode buta warna (monokrom)">
         <i class="fa-solid fa-eye-low-vision" aria-hidden="true"></i> Monokrom
       </button>
+      <button class="btn btn--sm btn--ghost" id="btn-dyslexia" aria-pressed="false" aria-label="Aktifkan font ramah disleksia">
+        <i class="fa-solid fa-font" aria-hidden="true"></i> Disleksia
+      </button>
       <button class="btn btn--sm btn--ghost" id="btn-font-down" aria-label="Perkecil teks">A−</button>
       <button class="btn btn--sm btn--ghost" id="btn-font-up" aria-label="Perbesar teks">A+</button>
-      <button class="btn btn--sm btn--ghost" id="btn-tts" aria-label="Bacakan halaman ini dengan suara">
-        <i class="fa-solid fa-volume-high" aria-hidden="true"></i> Bacakan
+      <button class="btn btn--sm btn--ghost" id="btn-tts" aria-pressed="false" aria-label="Bacakan halaman ini dengan suara">
+        <i class="fa-solid fa-volume-high" aria-hidden="true"></i> <span>Bacakan</span>
       </button>
     </div>
   </div>
@@ -50,6 +56,7 @@
 
   <footer class="footer" role="contentinfo">
     <div class="container">
+      <img src="assets/img/logo.png" alt="Teman Belajar Logo" class="site-logo site-logo--footer" width="80" height="80" loading="lazy">
       <p><strong>TEMAN BELAJAR</strong> — Belajar Memahami, Memahami untuk Bersama</p>
       <p class="muted">&copy; <span id="year"></span> Media edukasi inklusif.</p>
     </div>
@@ -58,8 +65,10 @@
   <div id="toast-region" class="toast-region" role="status" aria-live="polite"></div>
 
   <script src="js/app.js"></script>
+  <script src="js/accessibility.js"></script>
   <script src="js/data/modules.js"></script>
   <script src="js/views/auth.js"></script>
+  <script src="js/views/landing.js"></script>
   <script src="js/views/dashboard.js"></script>
   <script src="js/views/topup.js"></script>
   <script src="js/data/quizzes.js"></script>

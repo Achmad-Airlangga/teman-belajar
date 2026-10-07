@@ -1,49 +1,9 @@
-/* ===== TEMAN BELAJAR — views/auth.js (Landing, Login, Register + placeholder) ===== */
+/* ===== TEMAN BELAJAR — views/auth.js (Login, Register, 404) ===== */
 (function () {
   'use strict';
   const { Store, Router, esc, toast, SIGNUP_COINS } = TB;
 
   const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-  /* ---------- Landing ---------- */
-  const features = [
-    ['fa-eye-low-vision', 'Buta Warna', 'Rasakan dunia lewat simulasi penglihatan warna yang berbeda.'],
-    ['fa-person-walking-with-cane', 'Tunanetra', 'Belajar bernavigasi dengan suara dan sentuhan.'],
-    ['fa-ear-deaf', 'Tunarungu', 'Pelajari kamus BISINDO untuk berkomunikasi lewat isyarat.'],
-    ['fa-comment-slash', 'Nonverbal', 'Pahami cara berkomunikasi tanpa suara.'],
-    ['fa-puzzle-piece', 'Down Syndrome', 'Kenali dan berinteraksi dengan empati dan percaya diri.'],
-    ['fa-brain', 'Autisme (Neurodivergen)', 'Pahami cara otak yang berbeda bekerja dan cara mendukungnya.'],
-    ['fa-wheelchair', 'Disabilitas Fisik (Daksa)', 'Pelajari etika berinteraksi dan lingkungan yang ramah akses.'],
-    ['fa-trophy', 'Kuis & Poin', 'Kumpulkan poin dan koin untuk membuka modul lanjutan.']
-  ];
-
-  Router.register('/', {
-    title: 'Beranda', auth: 'public',
-    render() {
-      const cta = Store.isLoggedIn
-        ? `<a class="btn btn--primary" href="#/dashboard"><i class="fa-solid fa-gauge" aria-hidden="true"></i> Ke Dashboard</a>`
-        : `<a class="btn btn--primary" href="#/register"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Daftar &amp; Dapat ${SIGNUP_COINS} Koin</a>
-           <a class="btn btn--ghost" href="#/login">Sudah punya akun</a>`;
-      return `
-        <section class="hero" aria-labelledby="hero-title">
-          <span class="tagline">TEMAN BELAJAR</span>
-          <h1 id="hero-title">Belajar Memahami,<br>Memahami untuk Bersama</h1>
-          <p>Media interaktif untuk memahami keberagaman disabilitas — lewat simulasi, kuis, dan kamus isyarat yang ramah semua orang.</p>
-          <div class="hero__cta">${cta}</div>
-        </section>
-        <section class="section" aria-labelledby="fitur-title">
-          <h2 id="fitur-title" class="text-center">Apa yang bisa kamu pelajari?</h2>
-          <div class="grid grid--3">
-            ${features.map(f => `
-              <article class="card feature">
-                <i class="fa-solid ${f[0]}" aria-hidden="true"></i>
-                <h3>${f[1]}</h3>
-                <p class="muted">${f[2]}</p>
-              </article>`).join('')}
-          </div>
-        </section>`;
-    }
-  });
 
   /* ---------- Utilitas form ---------- */
   function field({ id, label, type = 'text', autocomplete, placeholder = '', password = false }) {
