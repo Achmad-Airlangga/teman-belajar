@@ -15,55 +15,12 @@
   ];
 
   const business = [
-    {
-      icon: 'fa-triangle-exclamation', title: 'Masalah',
-      items: [
-        'Sekolah inklusi kekurangan media ajar yang menjembatani siswa reguler dan siswa berkebutuhan khusus.',
-        'Guru dan pendamping butuh alat bantu praktis, bukan hanya buku teks.',
-        'Siswa reguler jarang punya kesempatan memahami disabilitas lewat pengalaman, sehingga empati sulit tumbuh.'
-      ]
-    },
-    {
-      icon: 'fa-lightbulb', title: 'Solusi',
-      items: [
-        'Platform multisensori: visual, suara, dan interaktif dalam satu aplikasi web.',
-        'Simulasi pengalaman disabilitas, kamus BISINDO, dan kuis studi kasus sehari-hari.',
-        'Fitur aksesibilitas bawaan: kontras tinggi, monokrom, ukuran teks, text-to-speech, dan navigasi keyboard.'
-      ]
-    },
-    {
-      icon: 'fa-users', title: 'Segmen Pengguna',
-      items: [
-        'Sekolah inklusi dan SLB.',
-        'Guru, guru pendamping khusus, dan orang tua.',
-        'Komunitas, lembaga CSR, dan pemerintah daerah.'
-      ]
-    },
-    {
-      icon: 'fa-coins', title: 'Sumber Pendapatan',
-      items: [
-        'Freemium: modul dasar gratis, modul lanjutan dibuka dengan koin (top up QRIS).',
-        'Lisensi sekolah untuk akses banyak siswa dan laporan belajar.',
-        'Pelatihan dan workshop guru inklusi.',
-        'Kemitraan CSR dan program sosial.'
-      ]
-    },
-    {
-      icon: 'fa-hand-holding-heart', title: 'Dampak',
-      items: [
-        'Meningkatkan empati dan pemahaman siswa reguler terhadap teman disabilitas.',
-        'Memudahkan komunikasi antara siswa, guru, dan teman dengan kebutuhan berbeda.',
-        'Mendukung SDG 4 (Pendidikan Berkualitas) dan SDG 10 (Berkurangnya Kesenjangan).'
-      ]
-    },
-    {
-      icon: 'fa-road', title: 'Tahap & Rencana',
-      items: [
-        'Saat ini: prototipe fungsional (proof of concept) yang sudah bisa dicoba.',
-        'Berikutnya: uji coba terbatas di sekolah inklusi dan validasi konten bersama praktisi serta komunitas disabilitas.',
-        'Lanjutan: dashboard guru, konten BISINDO resmi, dan modul lanjutan.'
-      ]
-    }
+    { icon: 'fa-triangle-exclamation', title: 'Masalah', text: 'Sekolah inklusi kekurangan media ajar yang menjembatani siswa reguler dan siswa berkebutuhan khusus.' },
+    { icon: 'fa-lightbulb', title: 'Solusi', text: 'Platform web multisensori: simulasi, kamus BISINDO, kuis studi kasus, dan fitur aksesibilitas.' },
+    { icon: 'fa-users', title: 'Pengguna', text: 'Sekolah inklusi & SLB, guru pendamping, orang tua, dan komunitas.' },
+    { icon: 'fa-coins', title: 'Pendapatan', text: 'Freemium (koin via QRIS), lisensi sekolah, pelatihan guru, dan kemitraan CSR.' },
+    { icon: 'fa-hand-holding-heart', title: 'Dampak', text: 'Empati siswa tumbuh dan komunikasi di kelas inklusi jadi lebih mudah.' },
+    { icon: 'fa-road', title: 'Tahap', text: 'Prototipe siap dicoba. Berikutnya: uji coba di sekolah dan dashboard guru.' }
   ];
 
   /* ---------- Util ---------- */
@@ -234,15 +191,17 @@
         <header class="lp-section__head">
           <p class="chip"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Untuk juri &amp; mitra</p>
           <h2 id="bisnis-title">Model Bisnis &amp; Dampak</h2>
-          <p class="muted">Ringkasan masalah, solusi, sumber pendapatan, dan dampak yang ingin dicapai.</p>
         </header>
-        <div class="grid grid--3">
+        <ul class="biz-grid">
           ${business.map(b => `
-            <article class="card biz-card">
-              <h3><span class="biz-card__icon" aria-hidden="true"><i class="fa-solid ${b.icon}"></i></span> ${b.title}</h3>
-              <ul class="check-list">${b.items.map(i => `<li>${i}</li>`).join('')}</ul>
-            </article>`).join('')}
-        </div>
+            <li class="biz-item">
+              <span class="biz-card__icon" aria-hidden="true"><i class="fa-solid ${b.icon}"></i></span>
+              <div>
+                <h3>${b.title}</h3>
+                <p>${b.text}</p>
+              </div>
+            </li>`).join('')}
+        </ul>
         <p class="lp-sdg">
           <span class="chip chip--gold">SDG 4 · Pendidikan Berkualitas</span>
           <span class="chip">SDG 10 · Berkurangnya Kesenjangan</span>
@@ -270,10 +229,21 @@
   function finalCta() {
     if (Store.isLoggedIn) return '';
     return `
-      <section class="lp-final card" aria-labelledby="final-title">
-        <h2 id="final-title">Siap belajar bersama?</h2>
-        <p class="muted">Daftar gratis, dapatkan ${SIGNUP_COINS} koin, dan simpan progres belajarmu.</p>
-        <a class="btn btn--primary btn--lg" href="#/register"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Daftar &amp; Dapat ${SIGNUP_COINS} Koin</a>
+      <section class="lp-final lp-signup" aria-labelledby="final-title">
+        <span class="lp-signup__gift" aria-hidden="true">🎁</span>
+        <div class="lp-signup__text">
+          <p class="lp-signup__eyebrow">Gratis untuk semua</p>
+          <h2 id="final-title">Siap belajar bersama?</h2>
+          <ul class="lp-signup__perks">
+            <li><i class="fa-solid fa-coins" aria-hidden="true"></i> Bonus ${SIGNUP_COINS} koin</li>
+            <li><i class="fa-solid fa-book-open" aria-hidden="true"></i> 7 modul dasar gratis</li>
+            <li><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Progres tersimpan</li>
+          </ul>
+        </div>
+        <div class="lp-signup__action">
+          <a class="btn btn--signup" href="#/register"><i class="fa-solid fa-user-plus" aria-hidden="true"></i> Daftar Gratis Sekarang <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          <span class="lp-signup__note">Tanpa biaya · Kurang dari 1 menit</span>
+        </div>
       </section>`;
   }
 
@@ -282,7 +252,7 @@
     title: 'Beranda', auth: 'public',
 
     render() {
-      return heroHtml() + demoHtml() + featuresHtml() + businessHtml() + finalCta();
+      return heroHtml() + finalCta() + demoHtml() + featuresHtml() + businessHtml();
     },
 
     mount(root) {

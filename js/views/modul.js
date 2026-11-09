@@ -65,6 +65,32 @@
       </dialog>`;
   }
 
+  /* ---------- Modul PDF: tombol buka/unduh + pratinjau ---------- */
+  function pdfHtml(pdf) {
+    const name = pdf.file.split('/').pop();
+    return `
+      <section class="content-section card pdf-card" aria-labelledby="pdf-title">
+        <div class="pdf-card__head">
+          <span class="pdf-card__icon" aria-hidden="true"><i class="fa-solid fa-file-pdf"></i></span>
+          <div>
+            <h2 id="pdf-title">${esc(pdf.title)}</h2>
+            <p class="muted">Modul lengkap versi PDF: materi, misi, 10 soal latihan, dan kunci jawaban. Cocok dicetak untuk kelas.</p>
+          </div>
+        </div>
+        <div class="pdf-card__actions">
+          <a class="btn btn--primary btn--sm" href="${pdf.file}" target="_blank" rel="noopener">
+            <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i> Buka PDF<span class="sr-only"> (tab baru)</span></a>
+          <a class="btn btn--ghost btn--sm" href="${pdf.file}" download="${esc(name)}">
+            <i class="fa-solid fa-download" aria-hidden="true"></i> Unduh PDF</a>
+        </div>
+        <details class="pdf-card__preview" id="pdf-preview">
+          <summary>Tampilkan pratinjau di halaman ini</summary>
+          <iframe title="Pratinjau ${esc(pdf.title)}" data-src="${pdf.file}#view=FitH" loading="lazy"></iframe>
+          <p class="muted pdf-card__note">Pratinjau tidak muncul di sebagian ponsel. Gunakan tombol Buka PDF.</p>
+        </details>
+      </section>`;
+  }
+
   /* ---------- Progress header ---------- */
   function updateProgress(root, id) {
     const pct = M.progressOf(id);
@@ -122,6 +148,7 @@
                aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}"><span style="width:${pct}%"></span></div>
           <p class="muted" id="mod-progress-text">Progres: ${pct}%</p>
 
+          ${c.pdf ? pdfHtml(c.pdf) : ''}
           ${(c.sections || []).map(sectionHtml).join('')}
           ${c.type === 'bisindo' ? bisindoHtml() : ''}
           ${c.quiz ? `<section class="content-section card quiz" id="quiz" aria-labelledby="quiz-title"></section>` : ''}
@@ -164,6 +191,13 @@
         TB.Quiz.init(root, m, c.quiz, { onProgress: () => updateProgress(root, m.id) });
       }
       if (c.type === 'bisindo') initBisindo(root, m);
+
+      // Pratinjau PDF baru dimuat saat dibuka, agar halaman tetap ringan
+      const prev = root.querySelector('#pdf-preview');
+      if (prev) prev.addEventListener('toggle', () => {
+        const f = prev.querySelector('iframe');
+        if (prev.open && !f.src) f.src = f.dataset.src;
+      });
     },
 
     unmount() {

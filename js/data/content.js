@@ -227,6 +227,17 @@
     }
   };
 
+  /* ---------- Modul PDF (bisa dibaca & diunduh di halaman modul) ---------- */
+  const PDF = {
+    'buta-warna-dasar': { file: 'assets/modul/Modul_1_Mengenal_Buta_Warna.pdf', title: 'Modul 1: Mengenal Buta Warna' },
+    'tunanetra-dasar': { file: 'assets/modul/Modul_2_Mengenal_Tunanetra.pdf', title: 'Modul 2: Mengenal Tunanetra' },
+    'tunarungu-dasar': { file: 'assets/modul/Modul_3_Mengenal_Tunarungu.pdf', title: 'Modul 3: Mengenal Tunarungu' },
+    'nonverbal-dasar': { file: 'assets/modul/Modul_4_Mengenal_Komunikasi_Nonverbal.pdf', title: 'Modul 4: Mengenal Komunikasi Nonverbal' },
+    'down-syndrome-dasar': { file: 'assets/modul/Modul_5_Mengenal_Down_Syndrome.pdf', title: 'Modul 5: Mengenal Down Syndrome' },
+    'autisme-dasar': { file: 'assets/modul/Modul_6_Mengenal_Autisme.pdf', title: 'Modul 6: Mengenal Autisme' }
+  };
+  Object.keys(PDF).forEach(id => { if (byId[id]) byId[id].pdf = PDF[id]; });
+
   /* ---------- Gabungkan bank soal & validasi jumlah soal ---------- */
   const bank = TB.QuizBank || {};
   Object.keys(bank).forEach(id => {

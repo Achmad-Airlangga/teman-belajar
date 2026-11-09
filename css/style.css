@@ -915,3 +915,70 @@ body.high-contrast .cvd-stage { background: #121212; border-color: #fff; }
 .demo-cta__text { display: grid; gap: .15rem; margin: 0; font-size: 1.05rem; }
 body.high-contrast .demo-cta { background: #121212; border-color: #fff; }
 @media (max-width: 600px) { .demo-cta .btn { width: 100%; } }
+
+/* ---------- Kartu modul PDF ---------- */
+.pdf-card__head { display: flex; gap: 1rem; align-items: flex-start; }
+.pdf-card__head h2 { margin: 0 0 .2rem; }
+.pdf-card__head p { margin: 0; }
+.pdf-card__icon { flex: none; width: 52px; height: 52px; display: grid; place-items: center; border-radius: 16px; font-size: 1.6rem; color: #b91c1c; background: #fee2e2; }
+.pdf-card__actions { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0 .5rem; }
+.pdf-card__preview summary { cursor: pointer; font-weight: 800; color: var(--c-link); padding: .4rem 0; }
+.pdf-card__preview iframe { display: block; width: 100%; height: 75vh; min-height: 420px; margin-top: .6rem; border: 1.5px solid rgba(59, 130, 246, .25); border-radius: 14px; background: #f8fafc; }
+.pdf-card__note { font-size: .85rem; margin: .5rem 0 0; }
+body.high-contrast .pdf-card__icon { background: #121212; color: #FFFF00; border: 2px solid #FFFF00; }
+body.high-contrast .pdf-card__preview summary { color: #FFFF00; }
+
+/* ---------- Model bisnis ringkas ---------- */
+.biz-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.biz-item { display: flex; gap: .9rem; align-items: flex-start; padding: 1.1rem 1.2rem; background: var(--c-surface); border: 1.5px solid rgba(59, 130, 246, .22); border-radius: 18px; box-shadow: var(--shadow); }
+.biz-item h3 { margin: 0 0 .2rem; font-size: 1.05rem; }
+.biz-item p { margin: 0; color: var(--c-muted); font-size: .95rem; line-height: 1.5; }
+.biz-item:nth-child(even) .biz-card__icon { background: #fef3c7; color: #b45309; }
+body.high-contrast .biz-item { background: #121212; border: 2px solid #fff; box-shadow: none; }
+
+/* ---------- Ajakan daftar (di atas demo) ---------- */
+.lp-final { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; padding: 1.25rem 1.5rem; text-align: left; }
+.lp-final h2 { font-size: 1.35rem; }
+@media (max-width: 600px) { .lp-final .btn { width: 100%; } }
+
+/* ---------- Ajakan daftar yang mencolok ---------- */
+@keyframes signup-pulse { 0% { box-shadow: 0 8px 22px rgba(245, 158, 11, .45), 0 0 0 0 rgba(245, 158, 11, .55); } 70% { box-shadow: 0 8px 22px rgba(245, 158, 11, .45), 0 0 0 16px rgba(245, 158, 11, 0); } 100% { box-shadow: 0 8px 22px rgba(245, 158, 11, .45), 0 0 0 0 rgba(245, 158, 11, 0); } }
+@keyframes gift-bob { 0%, 100% { transform: rotate(-8deg) translateY(0); } 50% { transform: rotate(8deg) translateY(-6px); } }
+.lp-signup {
+  position: relative; overflow: hidden; display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem 1.75rem;
+  margin-top: 1.5rem; padding: 1.6rem 1.9rem; border-radius: 26px; color: #fff; text-align: left;
+  background:
+    radial-gradient(rgba(255, 255, 255, .2) 2px, transparent 2.4px) 0 0 / 22px 22px,
+    linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+  border: 2px solid rgba(255, 255, 255, .35);
+  box-shadow: 0 18px 40px rgba(37, 99, 235, .35);
+}
+.lp-signup::after { content: ""; position: absolute; right: -60px; top: -60px; width: 220px; height: 220px; border-radius: 50%; background: rgba(245, 158, 11, .3); pointer-events: none; }
+.lp-signup__gift { flex: none; width: 72px; height: 72px; display: grid; place-items: center; font-size: 2.4rem; border-radius: 22px; background: #fff; box-shadow: 0 8px 20px rgba(2, 6, 23, .25); animation: gift-bob 3s ease-in-out infinite; }
+.lp-signup__text { flex: 1 1 280px; position: relative; z-index: 1; }
+.lp-signup__eyebrow { margin: 0; font-size: .8rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #FDE68A; }
+.lp-signup h2 { margin: .1rem 0 .6rem; color: #fff; font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 900; }
+.lp-signup__perks { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+.lp-signup__perks li { display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .8rem; border-radius: 999px; font-size: .9rem; font-weight: 700; background: rgba(255, 255, 255, .16); border: 1px solid rgba(255, 255, 255, .35); }
+.lp-signup__perks i { color: #FDE68A; }
+.lp-signup__action { position: relative; z-index: 1; display: grid; justify-items: center; gap: .45rem; }
+.btn--signup {
+  min-height: 60px; padding: 1rem 2rem; font-size: 1.15rem; font-weight: 900; border-radius: 999px;
+  color: #451a03; background: linear-gradient(135deg, #FCD34D, #F59E0B); border: 0; border-bottom: 4px solid #b45309;
+  animation: signup-pulse 2.2s ease-out infinite;
+}
+.btn--signup:hover { filter: brightness(1.06); transform: translateY(-3px) scale(1.02); }
+.btn--signup .fa-arrow-right { transition: transform .2s; }
+.btn--signup:hover .fa-arrow-right { transform: translateX(4px); }
+.lp-signup__note { font-size: .85rem; color: #DBEAFE; }
+.lp-signup :focus-visible { outline-color: #fff; }
+body.high-contrast .lp-signup { background: #121212; border: 3px solid #FFFF00; box-shadow: none; }
+body.high-contrast .lp-signup::after { display: none; }
+body.high-contrast .lp-signup h2, body.high-contrast .lp-signup__eyebrow, body.high-contrast .lp-signup__perks i { color: #FFFF00; }
+body.high-contrast .lp-signup__perks li { background: #121212; border-color: #fff; color: #fff; }
+body.high-contrast .lp-signup__gift { background: #121212; border: 2px solid #FFFF00; }
+body.high-contrast .btn--signup { background: #FFFF00; color: #000; border-bottom-color: #FFFF00; }
+@media (max-width: 600px) {
+  .lp-signup { padding: 1.3rem; }
+  .lp-signup__action, .btn--signup { width: 100%; }
+}
