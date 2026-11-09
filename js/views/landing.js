@@ -227,7 +227,25 @@
   }
 
   function finalCta() {
-    if (Store.isLoggedIn) return '';
+    // Sudah login: ganti ajakan daftar dengan tombol ke Dashboard
+    if (Store.isLoggedIn) {
+      const u = Store.user;
+      return `
+      <section class="lp-final lp-signup" aria-labelledby="final-title">
+        <span class="lp-signup__gift" aria-hidden="true">👋</span>
+        <div class="lp-signup__text">
+          <p class="lp-signup__eyebrow">Kamu sudah masuk</p>
+          <h2 id="final-title">Halo, ${esc(u.name)}! Lanjutkan belajarmu</h2>
+          <ul class="lp-signup__perks">
+            <li><i class="fa-solid fa-coins" aria-hidden="true"></i> ${u.coins} koin</li>
+            <li><i class="fa-solid fa-star" aria-hidden="true"></i> ${u.score} poin</li>
+          </ul>
+        </div>
+        <div class="lp-signup__action">
+          <a class="btn btn--signup" href="#/dashboard"><i class="fa-solid fa-gauge" aria-hidden="true"></i> Pergi ke Dashboard <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </section>`;
+    }
     return `
       <section class="lp-final lp-signup" aria-labelledby="final-title">
         <span class="lp-signup__gift" aria-hidden="true">🎁</span>
