@@ -158,7 +158,7 @@
                 <li>
                   <button type="button" class="sign-card" data-letter="${l}" aria-label="Pelajari isyarat huruf ${l}">
                     <span class="sign-card__img">
-                      <img src="assets/img/placeholder.jpg" alt="Isyarat ${l}" width="140" height="140">
+                      <img src="assets/img/bisindo/${l.toLowerCase()}.jpg" alt="Isyarat BISINDO huruf ${l}" width="180" height="148">
                       <i class="fa-solid fa-hand sign-card__hand" aria-hidden="true"></i>
                     </span>
                     <strong class="sign-card__letter">${l}</strong>
@@ -168,7 +168,6 @@
                 </li>`).join('')}
             </ul>
             <p class="demo__note" id="sign-status" aria-live="polite">Dicoba 0/${SIGN_LETTERS.length}</p>
-            <p class="demo__note demo__note--small">Gambar isyarat masih placeholder dan akan diganti ilustrasi BISINDO resmi.</p>
           </div>
 
           <div class="demo__panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden>

@@ -6,8 +6,8 @@
   const C = TB.Content;
 
   const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-  // Gambar placeholder. Ganti per huruf dengan gambar isyarat BISINDO asli.
-  const PLACEHOLDER_SRC = 'assets/img/placeholder.jpg';
+  // Gambar isyarat BISINDO per huruf: assets/img/bisindo/a.jpg sampai z.jpg
+  const signSrc = l => `assets/img/bisindo/${l.toLowerCase()}.jpg`;
   const BISINDO_GROUP = 'bisindo';
 
   /* ---------- Potongan HTML ---------- */
@@ -43,13 +43,13 @@
           <h2 id="bisindo-title">Abjad BISINDO A–Z</h2>
           <span class="muted" id="bisindo-count" aria-live="polite"></span>
         </div>
-        <p class="muted">Pilih huruf, lihat gambarnya, tirukan gerakannya, lalu tandai jika sudah bisa. Gambar saat ini masih placeholder.</p>
+        <p class="muted">Pilih huruf, lihat gambarnya, tirukan gerakannya, lalu tandai jika sudah bisa.</p>
         <ul class="letter-grid" id="letter-grid"></ul>
       </section>
 
       <dialog id="letter-dialog" class="dialog dialog--wide" aria-labelledby="ld-title">
         <h2 id="ld-title"></h2>
-        <img id="ld-img" class="letter-big" src="${PLACEHOLDER_SRC}" alt="">
+        <img id="ld-img" class="letter-big" src="${signSrc('A')}" alt="">
         <ol class="steps">
           <li>Perhatikan bentuk tangan pada gambar.</li>
           <li>Tirukan gerakannya perlahan di depan dada.</li>
@@ -220,7 +220,7 @@
         const isDone = done.includes(l);
         return `
           <li class="letter-card ${isDone ? 'is-done' : ''}">
-            <img src="${PLACEHOLDER_SRC}" alt="Isyarat ${l}" loading="lazy" width="160" height="160">
+            <img src="${signSrc(l)}" alt="Isyarat BISINDO huruf ${l}" loading="lazy" width="180" height="148">
             <h3>${l}</h3>
             ${isDone ? '<span class="badge badge--open"><i class="fa-solid fa-check" aria-hidden="true"></i> Sudah dipelajari</span>' : ''}
             <button type="button" class="btn btn--primary btn--sm" data-letter="${l}"
@@ -242,8 +242,8 @@
       current = l;
       root.querySelector('#ld-title').textContent = 'Huruf ' + l;
       const img = root.querySelector('#ld-img');
-      img.src = PLACEHOLDER_SRC;
-      img.alt = 'Isyarat ' + l;
+      img.src = signSrc(l);
+      img.alt = 'Isyarat BISINDO huruf ' + l;
       syncLearnBtn();
     }
 

@@ -982,3 +982,9 @@ body.high-contrast .btn--signup { background: #FFFF00; color: #000; border-botto
   .lp-signup { padding: 1.3rem; }
   .lp-signup__action, .btn--signup { width: 100%; }
 }
+
+/* ---------- Gambar isyarat BISINDO asli (180x148) ---------- */
+.letter-card img, .sign-card__img img { aspect-ratio: 180 / 148; object-fit: contain; background: #fff; border: 1px solid rgba(59, 130, 246, .2); }
+.letter-card img { max-width: 180px; }
+.sign-card__img { width: 160px; }
+.letter-big { max-width: 360px; aspect-ratio: 180 / 148; object-fit: contain; background: #fff; }
