@@ -10,7 +10,6 @@
     ['fa-comment-slash', 'Nonverbal', 'Pahami cara berkomunikasi tanpa suara.'],
     ['fa-puzzle-piece', 'Down Syndrome', 'Kenali dan berinteraksi dengan empati dan percaya diri.'],
     ['fa-brain', 'Autisme (Neurodivergen)', 'Pahami cara otak yang berbeda bekerja dan cara mendukungnya.'],
-    ['fa-wheelchair', 'Disabilitas Fisik (Daksa)', 'Pelajari etika berinteraksi dan lingkungan yang ramah akses.'],
     ['fa-trophy', 'Kuis & Poin', 'Kumpulkan poin dan koin untuk membuka modul lanjutan.']
   ];
 
@@ -253,7 +252,7 @@
           <h2 id="final-title">Siap belajar bersama?</h2>
           <ul class="lp-signup__perks">
             <li><i class="fa-solid fa-coins" aria-hidden="true"></i> Bonus ${SIGNUP_COINS} koin</li>
-            <li><i class="fa-solid fa-book-open" aria-hidden="true"></i> 7 modul dasar gratis</li>
+            <li><i class="fa-solid fa-book-open" aria-hidden="true"></i> ${TB.Modules.topics.length} modul dasar gratis</li>
             <li><i class="fa-solid fa-chart-line" aria-hidden="true"></i> Progres tersimpan</li>
           </ul>
         </div>

@@ -190,40 +190,6 @@
           ]
         }
       ]
-    },
-
-    /* ---------------- DISABILITAS FISIK (DAKSA) ---------------- */
-    'daksa-dasar': {
-      theme: null,
-      intro: 'Disabilitas fisik bukan akhir dari kemandirian. Lingkungan yang aksesibel membuat semua orang bisa berpartisipasi.',
-      sections: [
-        {
-          h: 'Apa itu disabilitas fisik (daksa)?',
-          p: [
-            'Disabilitas fisik atau daksa adalah hambatan pada fungsi gerak tubuh, misalnya karena kelumpuhan, amputasi, cerebral palsy, atau kondisi lain. Banyak penyandangnya memakai kursi roda, kruk, tongkat, atau anggota tubuh prostetik.',
-            'Hambatan terbesar sering bukan dari tubuhnya, melainkan dari lingkungan yang tidak aksesibel, seperti tangga tanpa ramp, pintu sempit, atau toilet yang tidak ramah kursi roda.'
-          ]
-        },
-        {
-          h: 'Etika berinteraksi',
-          list: [
-            'Tanyakan dulu sebelum membantu, dan ikuti arahannya.',
-            'Anggap kursi roda dan alat bantu sebagai bagian dari ruang pribadi. Jangan didorong, disandari, atau dipindahkan tanpa izin.',
-            'Sejajarkan pandangan saat mengobrol lama, dan bicara langsung kepada orangnya.',
-            'Gunakan istilah yang menghargai, seperti "pengguna kursi roda" atau "penyandang disabilitas".',
-            'Sesuaikan kecepatan langkah dan pilih rute yang aksesibel.'
-          ]
-        },
-        {
-          h: 'Lingkungan yang ramah akses',
-          list: [
-            'Ramp dengan kemiringan landai, permukaan tidak licin, dan pegangan.',
-            'Lift atau jalur alternatif untuk lantai atas.',
-            'Pintu dan lorong cukup lebar (sekitar 90 cm atau lebih) dan bebas hambatan.',
-            'Tempat parkir dan toilet khusus yang tidak dipakai untuk keperluan lain.'
-          ]
-        }
-      ]
     }
   };
 

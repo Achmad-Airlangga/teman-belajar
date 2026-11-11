@@ -54,14 +54,6 @@
         { id: 'autisme-dasar', title: 'Mengenal Autisme', cost: 0 },
         { id: 'autisme-lanjut', title: 'Berteman dengan Teman Neurodivergen', cost: ADVANCED_COST }
       ]
-    },
-    {
-      id: 'daksa', title: 'Disabilitas Fisik (Daksa)', icon: 'fa-wheelchair',
-      desc: 'Etika berinteraksi dan lingkungan yang ramah akses.',
-      modules: [
-        { id: 'daksa-dasar', title: 'Mengenal Disabilitas Fisik', cost: 0 },
-        { id: 'daksa-lanjut', title: 'Lingkungan Ramah Akses', cost: ADVANCED_COST }
-      ]
     }
   ];
 
